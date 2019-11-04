@@ -15,11 +15,13 @@ export default class PersonList extends React.Component {
         fetch('/api/person', {
             headers: {
                 'Accept':       'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' +this.props.token
             }
         })
         .then(response => response.json())
         .then(data => {
+            //console.log(this.state.data)
             this.setState({
                 people: data
             })
